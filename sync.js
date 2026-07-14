@@ -252,10 +252,19 @@ async function handleAdditions(records, discordThreads, githubItems) {
 
 async function main() {
   const records = loadState();
-  const discordThreads = await fetchDiscordThreads();
-  const githubItems = await fetchGithubItems();
+  let discordThreads = await fetchDiscordThreads();
+  let githubItems = await fetchGithubItems();
 
   const { survivors, changed: deleteChanged } = await handleDeletions(records, discordThreads, githubItems);
+
+  if (deleteChanged) {
+    // Deletions just mutated the other side (archived a thread / closed an issue) -
+    // the snapshots above are now stale, refetch so later passes don't act on
+    // pre-mutation data (this is exactly what caused the duplicate-issue bug).
+    discordThreads = await fetchDiscordThreads();
+    githubItems = await fetchGithubItems();
+  }
+
   const editChanged = await syncStatusAndEdits(survivors, discordThreads, githubItems);
   const addChanged = await handleAdditions(survivors, discordThreads, githubItems);
 

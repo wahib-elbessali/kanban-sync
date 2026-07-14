@@ -146,8 +146,8 @@
   {
     "feature": "Facial recognition access control",
     "discordThreadId": "1526389915640791094",
-    "githubIssueNumber": 19,
-    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgy1nDw",
+    "githubIssueNumber": 2,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgyuBlM",
     "lastStatus": "todo",
     "lastTitle": "Facial recognition access control",
     "lastBody": "Face match grants/denies access, parallel method to badge - same lock/unlock outcome."
