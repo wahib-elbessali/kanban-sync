@@ -67,7 +67,7 @@
     "discordThreadId": "1526389937107243139",
     "githubIssueNumber": 9,
     "githubItemId": "PVTI_lAHOC9nja84BdUq_zgyuBpk",
-    "lastStatus": "in-progress",
+    "lastStatus": "todo",
     "lastTitle": "Ticket kiosk",
     "lastBody": "Visitor requests a ticket via kiosk buttons; ticket gets printed."
   },
@@ -76,7 +76,7 @@
     "discordThreadId": "1526389940643168286",
     "githubIssueNumber": 10,
     "githubItemId": "PVTI_lAHOC9nja84BdUq_zgyuBqc",
-    "lastStatus": "in-progress",
+    "lastStatus": "todo",
     "lastTitle": "Ticket number display",
     "lastBody": "7-segment display shows the current/called ticket number."
   },
@@ -85,7 +85,7 @@
     "discordThreadId": "1526389954077397245",
     "githubIssueNumber": 11,
     "githubItemId": "PVTI_lAHOC9nja84BdUq_zgyuBq8",
-    "lastStatus": "done",
+    "lastStatus": "todo",
     "lastTitle": "Visitor queue tracking",
     "lastBody": "Tracks queue state - waiting count, current ticket, etc."
   },
