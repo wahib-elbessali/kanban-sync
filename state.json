@@ -151,23 +151,5 @@
     "lastStatus": "todo",
     "lastTitle": "Facial recognition access control",
     "lastBody": "Face match grants/denies access, parallel method to badge - same lock/unlock outcome."
-  },
-  {
-    "feature": "TEST feature (Discord origin) - EDITED",
-    "discordThreadId": "1526717177732927598",
-    "githubIssueNumber": 21,
-    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgy1080",
-    "lastStatus": "todo",
-    "lastTitle": "TEST feature (Discord origin) - EDITED",
-    "lastBody": "Temporary test feature created from Discord to verify the add-sync direction. Safe to ignore/delete."
-  },
-  {
-    "feature": "TEST feature (GitHub origin) - EDITED",
-    "discordThreadId": "1526718466672038073",
-    "githubIssueNumber": 20,
-    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgy10Sk",
-    "lastStatus": "todo",
-    "lastTitle": "TEST feature (GitHub origin) - EDITED",
-    "lastBody": "Edited body to verify github->discord edit sync."
   }
 ]
