@@ -1,0 +1,121 @@
+[
+  {
+    "feature": "Badge-based access control",
+    "discordThreadId": "1526389911219867648",
+    "githubIssueNumber": 1,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgyuBkk",
+    "lastStatus": "todo"
+  },
+  {
+    "feature": "Facial recognition access control",
+    "discordThreadId": "1526389915640791094",
+    "githubIssueNumber": 2,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgyuBlM",
+    "lastStatus": "todo"
+  },
+  {
+    "feature": "Weapon detection alerting",
+    "discordThreadId": "1526389918421618780",
+    "githubIssueNumber": 3,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgyuBmE",
+    "lastStatus": "todo"
+  },
+  {
+    "feature": "Abandoned-object detection alerting",
+    "discordThreadId": "1526389922016264262",
+    "githubIssueNumber": 4,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgyuBmc",
+    "lastStatus": "todo"
+  },
+  {
+    "feature": "Wanted-person facial recognition alert",
+    "discordThreadId": "1526389924410949643",
+    "githubIssueNumber": 5,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgyuBnA",
+    "lastStatus": "todo"
+  },
+  {
+    "feature": "Climate monitoring",
+    "discordThreadId": "1526389927695355985",
+    "githubIssueNumber": 6,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgyuBnc",
+    "lastStatus": "todo"
+  },
+  {
+    "feature": "Gas/CO leak detection and alerting",
+    "discordThreadId": "1526389930782228500",
+    "githubIssueNumber": 7,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgyuBoM",
+    "lastStatus": "todo"
+  },
+  {
+    "feature": "Simulated HVAC control",
+    "discordThreadId": "1526389934661832784",
+    "githubIssueNumber": 8,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgyuBo0",
+    "lastStatus": "todo"
+  },
+  {
+    "feature": "Ticket kiosk",
+    "discordThreadId": "1526389937107243139",
+    "githubIssueNumber": 9,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgyuBpk",
+    "lastStatus": "todo"
+  },
+  {
+    "feature": "Ticket number display",
+    "discordThreadId": "1526389940643168286",
+    "githubIssueNumber": 10,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgyuBqc",
+    "lastStatus": "todo"
+  },
+  {
+    "feature": "Visitor queue tracking",
+    "discordThreadId": "1526389954077397245",
+    "githubIssueNumber": 11,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgyuBq8",
+    "lastStatus": "todo"
+  },
+  {
+    "feature": "Person tracking with bird's-eye-view mapping",
+    "discordThreadId": "1526389956212428932",
+    "githubIssueNumber": 12,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgyuBrQ",
+    "lastStatus": "todo"
+  },
+  {
+    "feature": "Employee presence tracking",
+    "discordThreadId": "1526389958758109284",
+    "githubIssueNumber": 13,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgyuBsA",
+    "lastStatus": "todo"
+  },
+  {
+    "feature": "Occupancy heatmap view",
+    "discordThreadId": "1526389961912356985",
+    "githubIssueNumber": 14,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgyuBs4",
+    "lastStatus": "todo"
+  },
+  {
+    "feature": "Manual motor/lock override",
+    "discordThreadId": "1526389964391321784",
+    "githubIssueNumber": 15,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgyuBtw",
+    "lastStatus": "todo"
+  },
+  {
+    "feature": "Live alerts view",
+    "discordThreadId": "1526389966412976250",
+    "githubIssueNumber": 16,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgyuBuM",
+    "lastStatus": "todo"
+  },
+  {
+    "feature": "Climate / presence / queue stat views",
+    "discordThreadId": "1526389969428549705",
+    "githubIssueNumber": 17,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgyuBvA",
+    "lastStatus": "todo"
+  }
+]

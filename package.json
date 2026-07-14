@@ -1,0 +1,11 @@
+{
+  "name": "kanban-sync",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "sync.js",
+  "scripts": {
+    "start": "node sync.js"
+  },
+  "dependencies": {}
+}
