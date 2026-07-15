@@ -1,14 +1,11 @@
 import {
   FEATURES_CHANNEL_ID,
   DISCORD_STATUS_TAGS,
-  DISCORD_LAYER_TAGS,
   DISCORD_TAG_TO_STATUS,
-  DISCORD_TAG_TO_LAYER,
   GITHUB_PROJECT_ID,
   GITHUB_STATUS_FIELD_ID,
   GITHUB_STATUS_OPTIONS,
   GITHUB_OPTION_TO_STATUS,
-  LAYERS,
 } from "./config.js";
 import {
   getThreadTags,
@@ -34,15 +31,6 @@ import { loadState, saveState } from "./state.js";
 function statusFromTags(tagIds) {
   for (const id of tagIds) if (DISCORD_TAG_TO_STATUS[id]) return DISCORD_TAG_TO_STATUS[id];
   return null;
-}
-
-function layersFromTags(tagIds) {
-  return tagIds.map((id) => DISCORD_TAG_TO_LAYER[id]).filter(Boolean);
-}
-
-function layersFromLabels(labelNodes) {
-  const names = labelNodes.map((l) => l.name);
-  return LAYERS.filter((l) => names.includes(l));
 }
 
 async function fetchDiscordThreads() {
@@ -195,7 +183,6 @@ async function handleAdditions(records, discordThreads, githubItems) {
     const starter = await getStarterMessage(thread.id);
     const body = starter.content ?? "";
     const status = statusFromTags(thread.applied_tags ?? []) ?? "todo";
-    const layers = layersFromTags(thread.applied_tags ?? []);
 
     if (match) {
       console.log(`[link existing] ${thread.name} (matched by title, not creating a duplicate)`);
@@ -213,7 +200,7 @@ async function handleAdditions(records, discordThreads, githubItems) {
     }
 
     console.log(`[add: discord->github] ${thread.name}`);
-    const issue = await createIssue(thread.name, body, layers);
+    const issue = await createIssue(thread.name, body);
     const itemId = await addIssueToProject(GITHUB_PROJECT_ID, issue.node_id);
     await setItemStatusOptionId(GITHUB_PROJECT_ID, itemId, GITHUB_STATUS_FIELD_ID, GITHUB_STATUS_OPTIONS[status]);
     records.push({
@@ -232,8 +219,7 @@ async function handleAdditions(records, discordThreads, githubItems) {
     changed = true;
     console.log(`[add: github->discord] ${item.content.title}`);
     const status = item.fieldValueByName?.optionId ? GITHUB_OPTION_TO_STATUS[item.fieldValueByName.optionId] ?? "todo" : "todo";
-    const layers = layersFromLabels(item.content.labels?.nodes ?? []);
-    const tagIds = [DISCORD_STATUS_TAGS[status], ...layers.map((l) => DISCORD_LAYER_TAGS[l])];
+    const tagIds = [DISCORD_STATUS_TAGS[status]];
     const body = item.content.body ?? "(no description)";
     const threadId = await createFeaturePost(FEATURES_CHANNEL_ID, item.content.title, body, tagIds);
     records.push({

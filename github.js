@@ -51,7 +51,6 @@ export async function listProjectItems(projectId) {
                   title
                   body
                   state
-                  labels(first: 10) { nodes { name } }
                 }
               }
             }
@@ -76,10 +75,10 @@ export async function setItemStatusOptionId(projectId, itemId, fieldId, optionId
   );
 }
 
-export async function createIssue(title, body, labels) {
+export async function createIssue(title, body) {
   return rest(`/repos/${GITHUB_OWNER}/${GITHUB_REPO}/issues`, {
     method: "POST",
-    body: JSON.stringify({ title, body, labels }),
+    body: JSON.stringify({ title, body }),
   });
 }
 
