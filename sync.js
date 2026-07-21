@@ -19,7 +19,6 @@ import {
   listArchivedFeatureThreads,
   createFeaturePost,
   getChannel,
-  setChannelTopic,
 } from "./discordRest.js";
 import {
   listProjectItems,
@@ -252,15 +251,12 @@ async function handleAdditions(records, discordThreads, githubItems) {
   return changed;
 }
 
-const FEATURE_COUNT_SUFFIX_RE = / \| \d+ features tracked$/;
-
 async function updateFeatureCount(count) {
   const channel = await getChannel(FEATURES_CHANNEL_ID);
-  const baseTopic = (channel.topic ?? "").replace(FEATURE_COUNT_SUFFIX_RE, "");
-  const newTopic = `${baseTopic} | ${count} features tracked`;
-  if (newTopic !== channel.topic) {
-    console.log(`[topic] updating feature count -> ${count}`);
-    await setChannelTopic(FEATURES_CHANNEL_ID, newTopic);
+  const newName = `features-${count}`;
+  if (newName !== channel.name) {
+    console.log(`[name] updating feature count -> ${count}`);
+    await setThreadName(FEATURES_CHANNEL_ID, newName);
   }
 }
 
