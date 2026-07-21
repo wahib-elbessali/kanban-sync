@@ -48,6 +48,13 @@ export async function archiveThread(threadId) {
   });
 }
 
+export async function unarchiveThread(threadId) {
+  await discordFetch(`/channels/${threadId}`, {
+    method: "PATCH",
+    body: JSON.stringify({ archived: false, locked: false }),
+  });
+}
+
 export async function getStarterMessage(threadId) {
   return discordFetch(`/channels/${threadId}/messages/${threadId}`);
 }
