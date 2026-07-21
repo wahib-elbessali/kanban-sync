@@ -26,13 +26,6 @@ export async function getChannel(channelId) {
   return discordFetch(`/channels/${channelId}`);
 }
 
-export async function setChannelTopic(channelId, topic) {
-  await discordFetch(`/channels/${channelId}`, {
-    method: "PATCH",
-    body: JSON.stringify({ topic }),
-  });
-}
-
 export async function getThreadTags(threadId) {
   const data = await getThread(threadId);
   return data.applied_tags ?? [];
