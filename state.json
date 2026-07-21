@@ -1,1 +1,146 @@
-[]
+[
+  {
+    "feature": "Public relations (PR)",
+    "discordThreadId": "1529234913193103380",
+    "githubIssueNumber": 40,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgznw_k",
+    "lastStatus": "todo",
+    "lastTitle": "Public relations (PR)",
+    "lastBody": "Broadcasting announcements, info, and notifications to customers and employees."
+  },
+  {
+    "feature": "Weapon detection",
+    "discordThreadId": "1529234907811942542",
+    "githubIssueNumber": 41,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgznxAY",
+    "lastStatus": "todo",
+    "lastTitle": "Weapon detection",
+    "lastBody": "Identifying weapons to enhance security."
+  },
+  {
+    "feature": "Climate management",
+    "discordThreadId": "1529234903001206785",
+    "githubIssueNumber": 42,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgznxA0",
+    "lastStatus": "todo",
+    "lastTitle": "Climate management",
+    "lastBody": "Monitoring/controlling temperature, humidity, and air quality."
+  },
+  {
+    "feature": "Hazard/abnormal event detection",
+    "discordThreadId": "1529234897883889705",
+    "githubIssueNumber": 43,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgznxBk",
+    "lastStatus": "todo",
+    "lastTitle": "Hazard/abnormal event detection",
+    "lastBody": "Detection of any hazardous or abnormal event (fire, smoke, gas leak, intrusion)."
+  },
+  {
+    "feature": "Smart door management",
+    "discordThreadId": "1529234892934877184",
+    "githubIssueNumber": 44,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgznxDc",
+    "lastStatus": "todo",
+    "lastTitle": "Smart door management",
+    "lastBody": "Automatic open/close based on schedule, access authorization, and facial recognition; doors stay locked against unauthorized access attempts."
+  },
+  {
+    "feature": "Smart lighting management",
+    "discordThreadId": "1529234888266354748",
+    "githubIssueNumber": 45,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgznxFI",
+    "lastStatus": "todo",
+    "lastTitle": "Smart lighting management",
+    "lastBody": "Automatic on/off based on detected presence."
+  },
+  {
+    "feature": "Theft detection",
+    "discordThreadId": "1529234879299063991",
+    "githubIssueNumber": 46,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgznxFk",
+    "lastStatus": "todo",
+    "lastTitle": "Theft detection",
+    "lastBody": "Detecting theft in progress or after the fact."
+  },
+  {
+    "feature": "Camera monitoring",
+    "discordThreadId": "1529234866242060378",
+    "githubIssueNumber": 47,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgznxGQ",
+    "lastStatus": "todo",
+    "lastTitle": "Camera monitoring",
+    "lastBody": "Detecting disabled or malfunctioning cameras."
+  },
+  {
+    "feature": "Queue management",
+    "discordThreadId": "1529234860932071454",
+    "githubIssueNumber": 48,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgznxGo",
+    "lastStatus": "todo",
+    "lastTitle": "Queue management",
+    "lastBody": "Estimating queue length via cameras and tickets to improve organization."
+  },
+  {
+    "feature": "Customer satisfaction",
+    "discordThreadId": "1529234853961404598",
+    "githubIssueNumber": 49,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgznxG8",
+    "lastStatus": "todo",
+    "lastTitle": "Customer satisfaction",
+    "lastBody": "Analyzing customer satisfaction from camera and ticket data."
+  },
+  {
+    "feature": "Ticket management",
+    "discordThreadId": "1529234848328187904",
+    "githubIssueNumber": 50,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgznxHk",
+    "lastStatus": "todo",
+    "lastTitle": "Ticket management",
+    "lastBody": "Creating and tracking customer tickets."
+  },
+  {
+    "feature": "Employee activity monitoring",
+    "discordThreadId": "1529234842825527336",
+    "githubIssueNumber": 51,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgznxIU",
+    "lastStatus": "todo",
+    "lastTitle": "Employee activity monitoring",
+    "lastBody": "Verifying each employee works within their assigned zone."
+  },
+  {
+    "feature": "Employee presence",
+    "discordThreadId": "1529234837901152267",
+    "githubIssueNumber": 52,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgznxIw",
+    "lastStatus": "todo",
+    "lastTitle": "Employee presence",
+    "lastBody": "Tracking employee presence via access cards and facial recognition."
+  },
+  {
+    "feature": "Access control",
+    "discordThreadId": "1529234832696279101",
+    "githubIssueNumber": 53,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgznxJU",
+    "lastStatus": "todo",
+    "lastTitle": "Access control",
+    "lastBody": "Managing access for fast, secure entry of authorized people."
+  },
+  {
+    "feature": "Private zone & employee zone detection",
+    "discordThreadId": "1529234827780554903",
+    "githubIssueNumber": 54,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgznxKE",
+    "lastStatus": "todo",
+    "lastTitle": "Private zone & employee zone detection",
+    "lastBody": "Identifying private zones and employee-only zones to control movement."
+  },
+  {
+    "feature": "Tracking ID",
+    "discordThreadId": "1529234822579490816",
+    "githubIssueNumber": 55,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgznxKs",
+    "lastStatus": "todo",
+    "lastTitle": "Tracking ID",
+    "lastBody": "Real-time tracking of people or objects via a unique identifier."
+  }
+]
