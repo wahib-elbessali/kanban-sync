@@ -18,6 +18,8 @@ import {
   listActiveFeatureThreads,
   listArchivedFeatureThreads,
   createFeaturePost,
+  getChannel,
+  setChannelTopic,
 } from "./discordRest.js";
 import {
   listProjectItems,
@@ -250,6 +252,18 @@ async function handleAdditions(records, discordThreads, githubItems) {
   return changed;
 }
 
+const FEATURE_COUNT_SUFFIX_RE = / \| \d+ features tracked$/;
+
+async function updateFeatureCount(count) {
+  const channel = await getChannel(FEATURES_CHANNEL_ID);
+  const baseTopic = (channel.topic ?? "").replace(FEATURE_COUNT_SUFFIX_RE, "");
+  const newTopic = `${baseTopic} | ${count} features tracked`;
+  if (newTopic !== channel.topic) {
+    console.log(`[topic] updating feature count -> ${count}`);
+    await setChannelTopic(FEATURES_CHANNEL_ID, newTopic);
+  }
+}
+
 async function main() {
   const records = loadState();
   let discordThreads = await fetchDiscordThreads();
@@ -267,6 +281,8 @@ async function main() {
 
   const editChanged = await syncStatusAndEdits(survivors, discordThreads, githubItems);
   const addChanged = await handleAdditions(survivors, discordThreads, githubItems);
+
+  await updateFeatureCount(survivors.length);
 
   if (deleteChanged || editChanged || addChanged) {
     saveState(survivors);
