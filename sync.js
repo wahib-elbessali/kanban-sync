@@ -12,6 +12,7 @@ import {
   setThreadTags,
   setThreadName,
   archiveThread,
+  unarchiveThread,
   getStarterMessage,
   editStarterMessage,
   listActiveFeatureThreads,
@@ -47,6 +48,12 @@ async function fetchGithubItems() {
   return new Map(items.map((i) => [i.id, i]));
 }
 
+// Discord has no way to distinguish "someone archived this on purpose" from
+// "Discord auto-archived it after auto_archive_duration of inactivity" - both
+// just show up as archived: true. The team's convention is: deletion only
+// ever happens via a hard delete (thread gone entirely), never archiving. So
+// an archived-but-still-existing thread whose GitHub issue is still open is
+// treated as an inactivity auto-archive and revived, not as a delete signal.
 async function handleDeletions(records, discordThreads, githubItems) {
   const survivors = [];
   let changed = false;
@@ -54,19 +61,26 @@ async function handleDeletions(records, discordThreads, githubItems) {
   for (const record of records) {
     const thread = discordThreads.get(record.discordThreadId);
     const item = githubItems.get(record.githubItemId);
-    const discordDeleted = !thread || thread.archived;
+    const discordGone = !thread;
     const githubDeleted = !item || item.content.state === "CLOSED";
 
-    if (!discordDeleted && !githubDeleted) {
+    if (thread && thread.archived && !githubDeleted) {
+      console.log(`[revive] ${record.feature} - Discord thread archived (inactivity, not a real delete) but GitHub issue still open; unarchiving`);
+      await unarchiveThread(record.discordThreadId);
+      survivors.push(record);
+      continue;
+    }
+
+    if (!discordGone && !githubDeleted) {
       survivors.push(record);
       continue;
     }
 
     changed = true;
-    if (discordDeleted && !githubDeleted) {
+    if (discordGone && !githubDeleted) {
       console.log(`[delete: discord->github] ${record.feature}`);
       await closeIssue(record.githubIssueNumber);
-    } else if (githubDeleted && !discordDeleted) {
+    } else if (githubDeleted && !discordGone) {
       console.log(`[delete: github->discord] ${record.feature}`);
       await archiveThread(record.discordThreadId);
     } else {
