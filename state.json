@@ -151,5 +151,14 @@
     "lastStatus": "todo",
     "lastTitle": "Facial recognition access control",
     "lastBody": "Face match grants/denies access, parallel method to badge - same lock/unlock outcome."
+  },
+  {
+    "feature": "TEST feature - delete detection check",
+    "discordThreadId": "1529232007018582207",
+    "githubIssueNumber": 39,
+    "githubItemId": "PVTI_lAHOC9nja84BdUq_zgzntNU",
+    "lastStatus": "todo",
+    "lastTitle": "TEST feature - delete detection check",
+    "lastBody": "Throwaway test post to verify kanban-sync hard-delete detection. Safe to ignore."
   }
 ]
