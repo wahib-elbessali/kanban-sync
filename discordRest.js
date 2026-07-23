@@ -2,16 +2,46 @@ import { DISCORD_GUILD_ID } from "./config.js";
 
 const discordBotToken = process.env.DISCORD_BOT_TOKEN;
 
-async function discordFetch(path, options = {}) {
-  const res = await fetch(`https://discord.com/api/v10${path}`, {
-    ...options,
-    headers: {
-      Authorization: `Bot ${discordBotToken}`,
-      "Content-Type": "application/json",
-      ...(options.headers ?? {}),
-    },
-  });
+const MAX_RETRIES = 3;
+const RETRYABLE_STATUS_CODES = new Set([429, 500, 502, 503, 504]);
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+// Discord's API occasionally has transient blips (upstream 502/503, dropped
+// connections) that have nothing to do with our request being wrong - retry
+// those a few times with backoff instead of failing the whole sync run.
+async function discordFetch(path, options = {}, attempt = 1) {
+  let res;
+  try {
+    res = await fetch(`https://discord.com/api/v10${path}`, {
+      ...options,
+      headers: {
+        Authorization: `Bot ${discordBotToken}`,
+        "Content-Type": "application/json",
+        ...(options.headers ?? {}),
+      },
+    });
+  } catch (err) {
+    if (attempt > MAX_RETRIES) throw err;
+    const delay = 500 * 2 ** (attempt - 1);
+    console.warn(`Discord ${options.method ?? "GET"} ${path} network error (attempt ${attempt}/${MAX_RETRIES}): ${err.message} - retrying in ${delay}ms`);
+    await sleep(delay);
+    return discordFetch(path, options, attempt + 1);
+  }
+
   if (!res.ok) {
+    if (RETRYABLE_STATUS_CODES.has(res.status) && attempt <= MAX_RETRIES) {
+      let delay = 500 * 2 ** (attempt - 1);
+      if (res.status === 429) {
+        const retryAfter = Number(res.headers.get("retry-after"));
+        if (retryAfter) delay = retryAfter * 1000;
+      }
+      console.warn(`Discord ${options.method ?? "GET"} ${path} failed: ${res.status} (attempt ${attempt}/${MAX_RETRIES}) - retrying in ${delay}ms`);
+      await sleep(delay);
+      return discordFetch(path, options, attempt + 1);
+    }
     throw new Error(`Discord ${options.method ?? "GET"} ${path} failed: ${res.status} ${await res.text()}`);
   }
   if (res.status === 204) return null;
